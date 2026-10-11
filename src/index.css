@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --color-primary: #0571c2;
+  --color-primary-50: rgba(5, 113, 194, 0.07);
+  --color-primary-100: rgba(5, 113, 194, 0.14);
+  --color-primary-200: rgba(5, 113, 194, 0.25);
+  --color-primary-700: #045a9b;
+
+  --color-navy: #1e242e;
+  --color-navy-90: rgba(30, 36, 46, 0.9);
+  --color-navy-70: rgba(30, 36, 46, 0.7);
+  --color-navy-50: rgba(30, 36, 46, 0.5);
+  --color-navy-15: rgba(30, 36, 46, 0.15);
+  --color-navy-08: rgba(30, 36, 46, 0.08);
+
+  --color-white: #ffffff;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 40px -12px rgba(30, 36, 46, 0.12);
+}
+
+.shadow-soft-hover {
+  box-shadow: 0 20px 50px -12px rgba(5, 113, 194, 0.18);
+}
+
+.blue-glow {
+  background: radial-gradient(circle, rgba(5, 113, 194, 0.32) 0%, rgba(30, 36, 46, 0) 70%);
+}
+
+.blue-glow-strong {
+  background: radial-gradient(circle, rgba(5, 113, 194, 0.42) 0%, rgba(30, 36, 46, 0) 68%);
+}
+
