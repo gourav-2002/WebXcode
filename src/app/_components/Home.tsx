@@ -1531,15 +1531,16 @@ export const FeaturedProjectsSection: React.FC<{
                 <span className="text-[11px] text-primary font-bold">{primaryProject.category}</span>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden bg-navy">
-                <Image
-                  src={primaryProject.image}
-                  alt={primaryProject.title}
-                  loading="lazy"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  style={{ height: '125%' }}
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-12"
-                />
+                <div className="absolute inset-0 h-[125%] transition-transform duration-700 ease-out group-hover:-translate-y-12">
+                  <Image
+                    src={primaryProject.image}
+                    alt={primaryProject.title}
+                    loading="lazy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
 
@@ -1580,15 +1581,16 @@ export const FeaturedProjectsSection: React.FC<{
                     <span className="text-[10px] text-white/60">https://{proj.id}.com</span>
                   </div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                    <Image
-                      src={proj.image}
-                      alt={proj.title}
-                      loading="lazy"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      style={{ height: '125%' }}
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-8"
-                    />
+                    <div className="absolute inset-0 h-[125%] transition-transform duration-700 ease-out group-hover:-translate-y-8">
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        loading="lazy"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -1852,7 +1854,7 @@ export const TestimonialsSection: React.FC = () => {
                 </span>
               </div>
               <p className="text-[17px] sm:text-[19px] font-medium text-navy leading-[1.65] mb-8">
-                "{featured.quote}"
+                &quot;{featured.quote}&quot;
               </p>
             </div>
 
@@ -1888,7 +1890,7 @@ export const TestimonialsSection: React.FC = () => {
                   <span className="text-[12px] font-bold text-primary">{item.metric}</span>
                 </div>
                 <p className="text-[14px] text-navy-90 leading-relaxed line-clamp-2 mb-3.5">
-                  "{item.quote}"
+                  &quot;{item.quote}&quot;
                 </p>
                 <div className="flex items-center justify-between text-[13px]">
                   <div className="flex items-center gap-2.5">
@@ -2140,7 +2142,7 @@ export const CTABand: React.FC<{ onOpenQuoteModal: (service?: string) => void }>
                 className="mb-4"
               />
               <p className="text-[17px] sm:text-[18px] text-white/80 leading-relaxed max-w-xl mb-8">
-                Let's create something amazing together. Get a free consultation today.
+                Let&apos;s create something amazing together. Get a free consultation today.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 mb-7">
@@ -2260,7 +2262,7 @@ export const QuoteModal: React.FC<{
               FREE CONSULTATION & AUDIT
             </div>
             <h3 id="quote-modal-title" className="text-[24px] font-extrabold text-navy mb-2">
-              Let's Build Your <span className="text-primary">Digital Advantage</span>
+              Let&apos;s Build Your <span className="text-primary">Digital Advantage</span>
             </h3>
             <p className="text-[14px] text-navy-70 mb-6">
               Share your goals and receive a custom architecture roadmap and fixed-scope quote

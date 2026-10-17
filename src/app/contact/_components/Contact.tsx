@@ -269,12 +269,12 @@ const ContactHeroSection: React.FC = () => {
 
             {/* H1 */}
             <h1 className="text-[36px] sm:text-[48px] lg:text-[58px] font-extrabold leading-[1.09] tracking-[-0.025em] text-white">
-              Let's Build Something <span className="text-primary">Amazing Together</span>
+              Let&apos;s Build Something <span className="text-primary">Amazing Together</span>
             </h1>
 
             {/* Subtitle Paragraph */}
             <p className="text-[16px] sm:text-[18px] text-white/75 leading-[1.7] max-w-2xl">
-              Have a project in mind or want to discuss how we can help your business grow? We're
+              Have a project in mind or want to discuss how we can help your business grow? We&apos;re
               just a message away.
             </p>
 

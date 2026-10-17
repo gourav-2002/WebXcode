@@ -753,9 +753,10 @@ const Industries: React.FC<IndustriesProps> = ({ onOpenQuoteModal: propOpenQuote
   }, []);
 
   // Handle Hash Deep Links (e.g. /industries#healthcare) -> ensure group is visible, select in Deep Dive, highlight card
+  const locationHash = typeof window !== 'undefined' ? window.location.hash : '';
   useEffect(() => {
-    if (!(typeof window !== 'undefined' ? window.location.hash : '')) return;
-    const rawId = (typeof window !== 'undefined' ? window.location.hash : '').replace('#', '');
+    if (!locationHash) return;
+    const rawId = locationHash.replace('#', '');
     const matchedIndustry = industries.find((ind) => ind.slug === rawId);
     if (matchedIndustry) {
       setDirectoryGroup('All');
@@ -779,7 +780,7 @@ const Industries: React.FC<IndustriesProps> = ({ onOpenQuoteModal: propOpenQuote
         clearTimeout(clearTimer);
       };
     }
-  }, [(typeof window !== 'undefined' ? window.location.hash : '')]);
+  }, [locationHash]);
 
   const scrollToIndustryCard = (slug: string) => {
     setDirectoryGroup('All');

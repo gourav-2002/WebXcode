@@ -1236,7 +1236,7 @@ const RelatedLegalPagesSection: React.FC = () => {
                     </div>
                     {isActive ? (
                       <span className="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">
-                        You're here
+                        You&apos;re here
                       </span>
                     ) : (
                       <span className="px-3 py-1 rounded-full bg-navy/5 text-navy-50 text-[11px] font-bold uppercase tracking-wider">

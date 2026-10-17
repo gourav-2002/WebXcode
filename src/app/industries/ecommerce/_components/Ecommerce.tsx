@@ -1438,7 +1438,7 @@ const Ecommerce: React.FC<{
                   {/* Shelf Label */}
                   <div className="flex items-center justify-between mb-3 px-1">
                     <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-primary">
-                      AISLE 0{shelfNum} //{' '}
+                      AISLE 0{shelfNum} {'//'}{' '}
                       {shelfNum === 1
                         ? 'D2C & CONSUMER BRANDS'
                         : 'SPECIALTY, WHOLESALE & MARKETPLACE'}

@@ -1341,7 +1341,7 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
 
               {/* Single source of truth tagline note */}
               <p className="mt-2.5 text-[13px] font-mono text-primary-100/90">
-                // {websiteDevService.tagline}
+                {'// '}{websiteDevService.tagline}
               </p>
 
               {/* CTA Buttons */}
@@ -2779,15 +2779,16 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
 
                     {/* Laptop Screen Viewport */}
                     <div className="relative aspect-[16/10] overflow-hidden rounded-b-[12px] bg-navy">
-                      <Image
-                        src={activePortfolio.image}
-                        alt={activePortfolio.imageAlt}
-                        loading="lazy"
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 55vw"
-                        style={{ height: '135%' }}
-                        className="object-cover object-top transition-transform duration-1000 ease-in-out group-hover:-translate-y-14"
-                      />
+                      <div className="absolute inset-0 h-[135%] transition-transform duration-1000 ease-in-out group-hover:-translate-y-14">
+                        <Image
+                          src={activePortfolio.image}
+                          alt={activePortfolio.imageAlt}
+                          loading="lazy"
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 55vw"
+                          className="object-cover object-top"
+                        />
+                      </div>
                     </div>
                   </div>
 

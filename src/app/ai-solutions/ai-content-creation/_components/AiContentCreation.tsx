@@ -1342,7 +1342,7 @@ const AiContentCreation: React.FC<AiContentCreationProps> = ({ onOpenQuoteModal 
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2.5">
                       <span className="px-2.5 py-1 rounded-md bg-navy text-white font-mono text-[11px] font-extrabold">
-                        INSPECTING ROW {selectedRow.rowNum} // {selectedRow.sku}
+                        INSPECTING ROW {selectedRow.rowNum} {'//'} {selectedRow.sku}
                       </span>
                       <span className="text-[15px] font-extrabold text-navy">
                         {selectedRow.product}

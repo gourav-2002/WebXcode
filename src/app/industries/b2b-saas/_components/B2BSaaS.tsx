@@ -1438,7 +1438,6 @@ const B2BSaaS: React.FC<B2BSaaSProps> = ({ onOpenQuoteModal: propOpenQuoteModal 
                   type="button"
                   role="tab"
                   aria-selected={isSelected}
-                  aria-pressed={isSelected}
                   onClick={() => setActiveFunnelId(stage.id)}
                   onMouseEnter={() => setActiveFunnelId(stage.id)}
                   style={{

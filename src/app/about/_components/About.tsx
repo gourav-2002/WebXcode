@@ -1603,7 +1603,7 @@ const CareersTeaserSection: React.FC<{ onOpenQuoteModal: (service?: string) => v
                 className="mb-3"
               />
               <p className="text-[16px] sm:text-[17px] text-navy-70 leading-relaxed">
-                We're always looking for talented developers, designers and marketers.
+                We&apos;re always looking for talented developers, designers and marketers.
               </p>
             </div>
 
@@ -1654,7 +1654,7 @@ const AboutFinalCTASection: React.FC<{ onOpenQuoteModal: (service?: string) => v
                 className="mb-4"
               />
               <p className="text-[16px] sm:text-[18px] text-white/80 leading-relaxed max-w-2xl mb-8">
-                Whether you're a startup, a growing business or an enterprise, we're here to help
+                Whether you&apos;re a startup, a growing business or an enterprise, we&apos;re here to help
                 you reach your digital goals.
               </p>
 

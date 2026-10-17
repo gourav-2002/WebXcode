@@ -841,7 +841,7 @@ const TiltedShowcaseHero: React.FC<{
             </h1>
 
             <p className="text-[16px] sm:text-[18px] text-white/75 leading-[1.7] max-w-xl">
-              A look at the websites, web apps and AI solutions we've built for businesses across
+              A look at the websites, web apps and AI solutions we&apos;ve built for businesses across
               India, the US and the world.
             </p>
 
@@ -1487,15 +1487,16 @@ const PortfolioGridSection: React.FC<{
 
                         {/* Screenshot Area: Slowly Scrolls Top-to-Bottom on Hover */}
                         <div className={`relative ${frameHeightClass} overflow-hidden bg-navy`}>
-                          <Image
-                            src={proj.images[0]}
-                            alt={`${proj.title} — ${proj.category} screenshot`}
-                            loading="lazy"
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            style={{ height: '135%' }}
-                            className="object-cover object-top transition-transform duration-[1800ms] ease-in-out group-hover:-translate-y-[24%]"
-                          />
+                          <div className="absolute inset-0 h-[135%] transition-transform duration-[1800ms] ease-in-out group-hover:-translate-y-[24%]">
+                            <Image
+                              src={proj.images[0]}
+                              alt={`${proj.title} — ${proj.category} screenshot`}
+                              loading="lazy"
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              className="object-cover object-top"
+                            />
+                          </div>
                           <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
                           {/* Blue Circular "↗" Button Appearing in Corner on Hover */}
@@ -2154,7 +2155,7 @@ const YourProjectNextCTA: React.FC<{
                 className="mb-4"
               />
               <p className="text-[16px] sm:text-[18px] text-white/80 leading-relaxed max-w-xl mb-8">
-                Tell us about your idea and we'll turn it into something you're proud to show.
+                Tell us about your idea and we&apos;ll turn it into something you&apos;re proud to show.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">

@@ -1811,7 +1811,7 @@ const EcommerceDevelopment: React.FC<EcommerceDevelopmentProps> = ({ onOpenQuote
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <div>
                     <span className="font-mono text-[11px] font-extrabold uppercase tracking-wider text-primary">
-                      STAGE {activeAnatomyLayer.stepNumber} // {activeAnatomyLayer.tabLabel}
+                      STAGE {activeAnatomyLayer.stepNumber} {'//'} {activeAnatomyLayer.tabLabel}
                     </span>
                     <h3 className="text-[20px] sm:text-[24px] font-extrabold text-navy">
                       {activeAnatomyLayer.screenTitle}
