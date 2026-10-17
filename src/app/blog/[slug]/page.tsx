@@ -10,9 +10,11 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return blogPosts
+    .filter((post) => post.slug !== 'how-much-does-a-website-cost-in-india-2026')
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

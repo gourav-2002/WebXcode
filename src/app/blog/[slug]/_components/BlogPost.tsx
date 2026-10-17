@@ -36,16 +36,18 @@ import {
 
 interface BlogPostProps {
   onOpenQuoteModal?: (service?: string) => void;
+  slug?: string;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModal, slug: propSlug }) => {
   const quoteModalCtx = useQuoteModal();
   const onOpenQuoteModal = (service?: string) => {
     if (propOpenQuoteModal) propOpenQuoteModal(service);
     else quoteModalCtx.openQuoteModal(service);
   };
   const rawParams = useParams();
-  const slug = Array.isArray(rawParams?.slug) ? rawParams.slug[0] : (rawParams?.slug as string);
+  const slug =
+    propSlug ?? (Array.isArray(rawParams?.slug) ? rawParams.slug[0] : (rawParams?.slug as string));
   const postIndex = blogPosts.findIndex((p) => p.slug === slug);
   const post: BlogPostItem | undefined =
     postIndex !== -1 ? blogPosts[postIndex] : undefined;
@@ -143,7 +145,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${window.location.origin}/blog/${post.slug}`);
+    canonical.setAttribute('href', `https://webxcode.in/blog/${post.slug}`);
   }, [post]);
 
   // Reading progress bar & TOC scroll-spy listener
@@ -239,10 +241,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
     ...blogPosts.filter((p) => p.slug !== post.slug && p.category !== post.category),
   ].slice(0, 3);
 
-  const shareUrl =
-    typeof window !== 'undefined'
-      ? `${window.location.origin}/blog/${post.slug}`
-      : `https://webxcode.com/blog/${post.slug}`;
+  const shareUrl = `https://webxcode.in/blog/${post.slug}`;
 
   const handleCopyShareLink = () => {
     if (navigator.clipboard) {
