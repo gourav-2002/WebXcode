@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useInView } from 'motion/react';
 import {
@@ -522,12 +523,13 @@ const AboutHeroSection: React.FC<{ onOpenVideoModal: () => void }> = ({ onOpenVi
             {/* Large Rounded Office/Team Image with Glowing Wall Logo Overlay */}
             <div className="relative rounded-[20px] p-2.5 bg-white/[0.06] border border-white/15 backdrop-blur-md shadow-2xl">
               <div className="relative rounded-[16px] overflow-hidden aspect-[4/3] bg-navy">
-                <img
+                <Image
                   src={TEAM_OFFICE_IMG}
                   alt="WebXCode engineering and creative team collaborating in studio"
-                  referrerPolicy="no-referrer"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/30 to-navy/20" />
 
@@ -598,24 +600,26 @@ const WhoWeAreSection: React.FC<{ onOpenQuoteModal: (service?: string) => void }
           {/* Left: Overlapping Diagonal Image Collage */}
           <div className="lg:col-span-6 relative pb-8 sm:pb-14 sm:pr-10">
             {/* Main Large Image */}
-            <div className="rounded-[20px] overflow-hidden border border-navy-08 shadow-soft aspect-[4/3] bg-navy">
-              <img
+            <div className="relative rounded-[20px] overflow-hidden border border-navy-08 shadow-soft aspect-[4/3] bg-navy">
+              <Image
                 src={TEAM_OFFICE_IMG}
                 alt="WebXCode developers and strategists planning digital architecture"
                 loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
 
             {/* Smaller Overlapping Image (bottom-right) */}
-            <div className="hidden sm:block absolute bottom-0 right-0 w-[56%] rounded-[20px] overflow-hidden border-4 border-white shadow-2xl aspect-[16/11] bg-navy">
-              <img
+            <div className="hidden sm:block absolute bottom-0 right-0 w-[56%] rounded-[20px] overflow-hidden border-4 border-white shadow-2xl aspect-[16/11] bg-navy relative">
+              <Image
                 src={HERO_SHOWCASE_IMG}
                 alt="Modern web and AI interface crafted by WebXCode"
                 loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 56vw, 28vw"
+                className="object-cover"
               />
             </div>
 
@@ -1151,12 +1155,13 @@ const MeetTheTeamSection: React.FC = () => {
               >
                 {/* Portrait Container */}
                 <div className="relative rounded-[16px] overflow-hidden aspect-[3/4] bg-navy mb-4">
-                  <img
+                  <Image
                     src={member.image}
                     alt={`${member.name} — ${member.role} at WebXCode`}
                     loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className={`w-full h-full object-cover ${member.objPos} transition-transform duration-500 group-hover:scale-105`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className={`object-cover ${member.objPos} transition-transform duration-500 group-hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-transparent to-transparent" />
 
@@ -1240,12 +1245,13 @@ const LifeAtWebXCodeSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 auto-rows-[220px]">
           {/* Tile 1: Tall Team Discussions (spans 2 rows) */}
           <div className="group relative rounded-[20px] overflow-hidden sm:row-span-2 bg-navy border border-navy-08">
-            <img
+            <Image
               src={TEAM_OFFICE_IMG}
               alt="WebXCode engineering team architecture discussion"
               loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-6">
               <div>
@@ -1275,12 +1281,13 @@ const LifeAtWebXCodeSection: React.FC = () => {
 
           {/* Tile 3: Wide Workspace Photo (spans 2 cols) */}
           <div className="group relative rounded-[20px] overflow-hidden sm:col-span-2 bg-navy border border-navy-08">
-            <img
+            <Image
               src={HERO_SHOWCASE_IMG}
               alt="High-performance multi-device product lab at WebXCode"
               loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-6">
               <div>
@@ -1296,12 +1303,13 @@ const LifeAtWebXCodeSection: React.FC = () => {
 
           {/* Tile 4: Design & Prototyping Photo */}
           <div className="group relative rounded-[20px] overflow-hidden bg-navy border border-navy-08">
-            <img
+            <Image
               src={PROJECT_ECOM_IMG}
               alt="UI/UX design critiques and minimalist brand systems"
               loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-5">
               <h3 className="text-[16px] font-bold text-white">Design Systems Studio</h3>
@@ -1323,12 +1331,13 @@ const LifeAtWebXCodeSection: React.FC = () => {
 
           {/* Tile 6: AI & Innovation Lab Photo (spans 2 cols) */}
           <div className="group relative rounded-[20px] overflow-hidden sm:col-span-2 bg-navy border border-navy-08">
-            <img
+            <Image
               src={PROJECT_AI_IMG}
               alt="AI automation hackathons and LLM research sessions"
               loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-6">
               <div>
@@ -1344,12 +1353,13 @@ const LifeAtWebXCodeSection: React.FC = () => {
 
           {/* Tile 7: Celebrations & Launches Photo (spans 2 cols) */}
           <div className="group relative rounded-[20px] overflow-hidden sm:col-span-2 bg-navy border border-navy-08">
-            <img
+            <Image
               src={PROJECT_SAAS_IMG}
               alt="Celebrating global client product launches"
               loading="lazy"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-6">
               <div>
@@ -1726,10 +1736,12 @@ const StoryVideoModal: React.FC<{
 
         {/* Simulated Studio Reel Player */}
         <div className="relative aspect-video bg-navy overflow-hidden flex items-center justify-center">
-          <img
+          <Image
             src={TEAM_OFFICE_IMG}
             alt="WebXCode Studio Showreel"
-            className="w-full h-full object-cover opacity-45"
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover opacity-45"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
           <div className="relative z-10 text-center max-w-lg px-6">

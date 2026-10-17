@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1234,9 +1235,11 @@ const Healthcare: React.FC<{
 
                 {/* Doctor Avatar, Name, Specialty & Blue Stars */}
                 <div className="flex items-center gap-4 mb-5">
-                  <img
+                  <Image
                     src={IMG_DOCTOR_AVATAR_2}
                     alt="Dr. Ananya Sharma, Senior Dermatologist"
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-2xl object-cover border-2 border-primary shrink-0"
                   />
                   <div>
@@ -1891,10 +1894,12 @@ const Healthcare: React.FC<{
                         >
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div className="flex items-start gap-4">
-                              <img
+                              <Image
                                 src={doc.avatar}
                                 alt={doc.name}
                                 loading="lazy"
+                                width={64}
+                                height={64}
                                 className="w-16 h-16 rounded-2xl object-cover border-2 border-primary shrink-0"
                               />
                               <div>
@@ -2977,12 +2982,14 @@ const Healthcare: React.FC<{
 
               {/* Soft Card with Doctor-and-Patient Consultation Photo */}
               <div className="rounded-[24px] bg-primary-50/55 border border-primary-100 p-5 shadow-soft">
-                <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-navy mb-4">
-                  <img
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-navy mb-4">
+                  <Image
                     src={IMG_CLINIC_TEAM}
                     alt="Healthcare digital specialists discussing clinic website and patient booking workflow"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
                   />
                 </div>
                 <h3 className="text-[19px] font-extrabold text-navy mb-1.5">

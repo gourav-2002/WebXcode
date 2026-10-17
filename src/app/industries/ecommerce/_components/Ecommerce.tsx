@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1290,10 +1291,12 @@ const Ecommerce: React.FC<{
                   {/* White Product Card (7 cols) */}
                   <div className="sm:col-span-7 bg-white text-navy rounded-[20px] p-4 shadow-2xl border border-white/20 relative">
                     <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-navy mb-3.5">
-                      <img
+                      <Image
                         src={IMG_PRODUCT_LUXURY}
                         alt="Flagship D2C Vitamin C Serum product card"
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 400px"
+                        className="object-cover"
                       />
                       <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary text-white text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
                         BESTSELLER
@@ -2862,12 +2865,14 @@ const Ecommerce: React.FC<{
                     >
                       <div className="flex items-center gap-3.5">
                         {/* Small Thumbnail */}
-                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-navy shrink-0 border border-navy-15">
-                          <img
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-navy shrink-0 border border-navy-15">
+                          <Image
                             src={IMG_STORE_SHOWCASE}
                             alt={item.name}
                             loading="lazy"
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="48px"
+                            className="object-cover"
                           />
                         </div>
                         <div>
@@ -2922,10 +2927,12 @@ const Ecommerce: React.FC<{
                       &ldquo;{ORDER_CASE_STUDY.quote}&rdquo;
                     </p>
                     <div className="flex items-center gap-3">
-                      <img
+                      <Image
                         src={IMG_AVATAR_FOUNDER}
                         alt={ORDER_CASE_STUDY.clientName}
                         loading="lazy"
+                        width={36}
+                        height={36}
                         className="w-9 h-9 rounded-full object-cover border border-primary"
                       />
                       <div>

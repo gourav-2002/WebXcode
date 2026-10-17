@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1540,12 +1541,14 @@ const SkincareBeauty: React.FC<{
                           </span>
                         </div>
 
-                        <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-navy mb-3 border border-white">
-                          <img
+                        <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-navy mb-3 border border-white">
+                          <Image
                             src={stepItem.image}
                             alt={stepItem.name}
                             loading="lazy"
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 640px) 100vw, 33vw"
+                            className="object-cover"
                           />
                         </div>
 
@@ -2151,11 +2154,13 @@ const SkincareBeauty: React.FC<{
           <div className="rounded-[32px] border-2 border-primary-100 bg-white shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
             {/* Left Half: Tall Lifestyle Flat-Lay Image of Skincare Bottles */}
             <div className="lg:col-span-5 relative min-h-[340px] lg:min-h-full bg-primary-50 overflow-hidden">
-              <img
+              <Image
                 src={IMG_FLATLAY_PHOTO}
                 alt="Clean skincare D2C store flat-lay product photography"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
 
@@ -2225,10 +2230,12 @@ const SkincareBeauty: React.FC<{
               {/* Client Quote + Button */}
               <div className="pt-6 border-t border-navy-08 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <div className="flex items-start gap-3.5 max-w-md">
-                  <img
+                  <Image
                     src={IMG_AVATAR_CLIENT}
                     alt={FORMULA_CASE_STUDY.clientName}
                     loading="lazy"
+                    width={44}
+                    height={44}
                     className="w-11 h-11 rounded-full object-cover border-2 border-primary shrink-0 mt-0.5"
                   />
                   <div>

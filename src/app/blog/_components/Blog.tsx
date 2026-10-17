@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
@@ -1289,11 +1290,13 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
               >
                 <div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                    <img
+                    <Image
                       src={primaryFeatured.coverImage}
                       alt={primaryFeatured.coverAlt}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-primary text-white text-[12px] font-bold uppercase tracking-wider shadow-md">
                       {primaryFeatured.category}
@@ -1349,11 +1352,13 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
                     className="group bg-white rounded-[20px] p-4 sm:p-5 border border-navy-08 shadow-soft hover:shadow-soft-hover hover:border-primary-100 transition-all duration-300 flex items-center gap-4 sm:gap-5 flex-1"
                   >
                     <div className="w-28 sm:w-36 aspect-[4/3] rounded-[14px] overflow-hidden bg-navy shrink-0 relative">
-                      <img
+                      <Image
                         src={post.coverImage}
                         alt={post.coverAlt}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="144px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
 
@@ -1524,11 +1529,13 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
                             <div>
                               {/* 16:9 Cover Image with Category Pill over Corner */}
                               <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                                <img
+                                <Image
                                   src={post.coverImage}
                                   alt={post.coverAlt}
                                   loading="lazy"
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 50vw"
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-primary text-[11px] font-bold uppercase tracking-wider shadow-sm">
                                   {post.category}
@@ -1885,12 +1892,14 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
                 </div>
 
                 {/* Image at the bottom with rounded corners */}
-                <div className="aspect-[16/10] rounded-[14px] overflow-hidden bg-navy">
-                  <img
+                <div className="relative aspect-[16/10] rounded-[14px] overflow-hidden bg-navy">
+                  <Image
                     src={post.coverImage}
                     alt={post.coverAlt}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </Link>
@@ -2135,12 +2144,16 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
 
                   {/* Back Left Card */}
                   <div className="absolute w-56 rounded-[16px] overflow-hidden border-2 border-white/20 bg-navy shadow-xl -rotate-12 -translate-x-10 translate-y-3">
-                    <img
-                      src={IMG_ECOM_STORE}
-                      alt="E-commerce growth guide thumbnail"
-                      loading="lazy"
-                      className="w-full h-32 object-cover"
-                    />
+                    <div className="relative w-full h-32">
+                      <Image
+                        src={IMG_ECOM_STORE}
+                        alt="E-commerce growth guide thumbnail"
+                        loading="lazy"
+                        fill
+                        sizes="224px"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="p-3 bg-navy text-[11px] font-bold text-white/90 truncate">
                       Shopify vs WooCommerce 2026
                     </div>
@@ -2148,12 +2161,16 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
 
                   {/* Back Right Card */}
                   <div className="absolute w-56 rounded-[16px] overflow-hidden border-2 border-white/20 bg-navy shadow-xl rotate-12 translate-x-10 translate-y-2">
-                    <img
-                      src={IMG_AI_PLATFORM}
-                      alt="AI search and AEO guide thumbnail"
-                      loading="lazy"
-                      className="w-full h-32 object-cover"
-                    />
+                    <div className="relative w-full h-32">
+                      <Image
+                        src={IMG_AI_PLATFORM}
+                        alt="AI search and AEO guide thumbnail"
+                        loading="lazy"
+                        fill
+                        sizes="224px"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="p-3 bg-navy text-[11px] font-bold text-white/90 truncate">
                       What Is AEO &amp; Why It Matters
                     </div>
@@ -2161,12 +2178,16 @@ const Blog: React.FC<BlogProps> = ({ onOpenQuoteModal: propOpenQuoteModal }) => 
 
                   {/* Center Front Card */}
                   <div className="relative z-10 w-64 rounded-[18px] overflow-hidden border-2 border-primary bg-white text-navy shadow-2xl -translate-y-2">
-                    <img
-                      src={IMG_LAPTOP_SHOWCASE}
-                      alt="Website cost guide cover thumbnail"
-                      loading="lazy"
-                      className="w-full h-36 object-cover"
-                    />
+                    <div className="relative w-full h-36">
+                      <Image
+                        src={IMG_LAPTOP_SHOWCASE}
+                        alt="Website cost guide cover thumbnail"
+                        loading="lazy"
+                        fill
+                        sizes="256px"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="p-3.5 bg-white">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-primary block">
                         Web Development

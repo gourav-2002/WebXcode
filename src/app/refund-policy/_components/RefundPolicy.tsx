@@ -835,6 +835,8 @@ const RefundEstimateToolSection: React.FC = () => {
   const [amountInput, setAmountInput] = useState<string>('50000');
   const [selectedStageId, setSelectedStageId] = useState<string>(REFUND_STAGES_DATA[0].id);
   const [animatedValue, setAnimatedValue] = useState<number>(45000);
+  const animatedValueRef = useRef(animatedValue);
+  animatedValueRef.current = animatedValue;
 
   const selectedStage =
     REFUND_STAGES_DATA.find((s) => s.id === selectedStageId) || REFUND_STAGES_DATA[0];
@@ -844,7 +846,7 @@ const RefundEstimateToolSection: React.FC = () => {
 
   // Smooth count-up animation when targetRefund changes
   useEffect(() => {
-    let startVal = animatedValue;
+    const startVal = animatedValueRef.current;
     const diff = targetRefund - startVal;
     if (diff === 0) return;
 
@@ -864,6 +866,8 @@ const RefundEstimateToolSection: React.FC = () => {
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
+    // animatedValueRef avoids re-running this effect every frame while still reading the latest value
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetRefund]);
 
   const handleCurrencySwitch = (nextCurr: 'INR' | 'USD') => {
@@ -1636,7 +1640,7 @@ const RelatedLegalPagesSection: React.FC = () => {
                       <FileText className="w-5 h-5" strokeWidth={1.75} />
                     </div>
                     <span className="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">
-                      You're here
+                      You&apos;re here
                     </span>
                   </div>
                   <h3 className="text-[18px] font-bold text-navy mb-1">{page.title}</h3>

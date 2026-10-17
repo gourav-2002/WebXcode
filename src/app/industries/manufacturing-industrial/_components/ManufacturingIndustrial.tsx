@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1952,11 +1953,13 @@ const ManufacturingIndustrial: React.FC<{
                         >
                           <div>
                             <div className="relative h-28 rounded-xl overflow-hidden bg-navy mb-3">
-                              <img
+                              <Image
                                 src={prod.image}
                                 alt={`${prod.name} (${prod.partNumber})`}
                                 loading="lazy"
-                                className="w-full h-full object-cover opacity-85"
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                                className="object-cover opacity-85"
                               />
                               <span className="absolute top-2 left-2 px-2 py-0.5 rounded-xs bg-navy/90 text-white font-mono text-[10px] font-bold">
                                 {prod.material}

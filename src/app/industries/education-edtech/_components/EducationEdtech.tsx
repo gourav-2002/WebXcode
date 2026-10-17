@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1548,10 +1549,12 @@ const EducationEdtech: React.FC<{
                   <div className="rounded-[26px] bg-white text-navy overflow-hidden border border-navy-08">
                     {/* Campus Header Banner */}
                     <div className="relative h-36 bg-navy">
-                      <img
+                      <Image
                         src={IMG_CAMPUS_HERO}
                         alt="Students and faculty collaborating on a modern university campus"
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="330px"
+                        className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
@@ -2729,11 +2732,13 @@ const EducationEdtech: React.FC<{
               <div className="lg:col-span-8 p-5 sm:p-7 space-y-6">
                 {/* Video Player Thumbnail */}
                 <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-navy border border-navy-15 group">
-                  <img
+                  <Image
                     src={IMG_LMS_LESSON}
                     alt="Interactive video lecture inside custom LMS course player"
                     loading="lazy"
-                    className="w-full h-full object-cover opacity-85"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
 

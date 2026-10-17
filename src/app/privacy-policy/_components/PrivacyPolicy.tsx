@@ -617,7 +617,7 @@ const PrivacyHeroSection: React.FC = () => {
                 className="absolute bottom-2 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/20 backdrop-blur-md shadow-lg inline-flex items-center gap-2 text-[12px] font-bold text-white whitespace-nowrap"
               >
                 <ShieldCheck className="w-4 h-4 text-primary" />
-                <span>You're in Control</span>
+                <span>You&apos;re in Control</span>
               </motion.div>
             </div>
           </motion.div>
@@ -1293,7 +1293,7 @@ const RelatedLegalPagesSection: React.FC = () => {
                     </div>
                     {isActive ? (
                       <span className="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-bold uppercase tracking-wider">
-                        You're here
+                        You&apos;re here
                       </span>
                     ) : (
                       <span className="px-3 py-1 rounded-full bg-navy/5 text-navy-50 text-[11px] font-bold uppercase tracking-wider">

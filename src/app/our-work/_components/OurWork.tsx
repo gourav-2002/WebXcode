@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import {
@@ -913,12 +914,16 @@ const TiltedShowcaseHero: React.FC<{
                       <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
-                    <img
-                      src={proj.images[0]}
-                      alt={`${proj.title} interface preview`}
-                      loading="lazy"
-                      className="w-full aspect-[16/11] object-cover"
-                    />
+                    <div className="relative w-full aspect-[16/11]">
+                      <Image
+                        src={proj.images[0]}
+                        alt={`${proj.title} interface preview`}
+                        loading="lazy"
+                        fill
+                        sizes="33vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 ))}
               </motion.div>
@@ -939,12 +944,16 @@ const TiltedShowcaseHero: React.FC<{
                       <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
-                    <img
-                      src={proj.images[0]}
-                      alt={`${proj.title} interface preview`}
-                      loading="lazy"
-                      className="w-full aspect-[16/11] object-cover"
-                    />
+                    <div className="relative w-full aspect-[16/11]">
+                      <Image
+                        src={proj.images[0]}
+                        alt={`${proj.title} interface preview`}
+                        loading="lazy"
+                        fill
+                        sizes="33vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 ))}
               </motion.div>
@@ -965,12 +974,16 @@ const TiltedShowcaseHero: React.FC<{
                       <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
-                    <img
-                      src={proj.images[0]}
-                      alt={`${proj.title} interface preview`}
-                      loading="lazy"
-                      className="w-full aspect-[16/11] object-cover"
-                    />
+                    <div className="relative w-full aspect-[16/11]">
+                      <Image
+                        src={proj.images[0]}
+                        alt={`${proj.title} interface preview`}
+                        loading="lazy"
+                        fill
+                        sizes="33vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 ))}
               </motion.div>
@@ -996,12 +1009,16 @@ const TiltedShowcaseHero: React.FC<{
                     </div>
                     <span className="text-[10px] font-bold text-primary">{proj.category}</span>
                   </div>
-                  <img
-                    src={proj.images[0]}
-                    alt={`${proj.title} mobile preview`}
-                    loading="lazy"
-                    className="w-full aspect-[16/10] object-cover"
-                  />
+                  <div className="relative w-full aspect-[16/10]">
+                    <Image
+                      src={proj.images[0]}
+                      alt={`${proj.title} mobile preview`}
+                      loading="lazy"
+                      fill
+                      sizes="240px"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               ))}
             </motion.div>
@@ -1107,12 +1124,14 @@ const FeaturedSpotlightSection: React.FC<{
                 </div>
                 <span className="text-[11px] font-bold text-primary">Enterprise SaaS</span>
               </div>
-              <div className="aspect-[16/10] overflow-hidden bg-navy">
-                <img
+              <div className="relative aspect-[16/10] overflow-hidden bg-navy">
+                <Image
                   src={spotlight.images[0]}
                   alt={`${spotlight.title} desktop dashboard view`}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -1120,12 +1139,14 @@ const FeaturedSpotlightSection: React.FC<{
             {/* Overlapping Mobile Phone Mockup at Bottom-Right */}
             <div className="hidden sm:block absolute bottom-0 right-0 w-[34%] max-w-[195px] rounded-[24px] p-2 bg-navy border-4 border-white shadow-2xl">
               <div className="w-10 h-1 rounded-full bg-white/25 mx-auto mb-1.5" />
-              <div className="rounded-[16px] overflow-hidden aspect-[9/16] bg-navy">
-                <img
+              <div className="relative rounded-[16px] overflow-hidden aspect-[9/16] bg-navy">
+                <Image
                   src={spotlight.images[1] || spotlight.images[0]}
                   alt={`${spotlight.title} mobile responsive view`}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="195px"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -1466,11 +1487,14 @@ const PortfolioGridSection: React.FC<{
 
                         {/* Screenshot Area: Slowly Scrolls Top-to-Bottom on Hover */}
                         <div className={`relative ${frameHeightClass} overflow-hidden bg-navy`}>
-                          <img
+                          <Image
                             src={proj.images[0]}
                             alt={`${proj.title} — ${proj.category} screenshot`}
                             loading="lazy"
-                            className="w-full h-[135%] object-cover object-top transition-transform duration-[1800ms] ease-in-out group-hover:-translate-y-[24%]"
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            style={{ height: '135%' }}
+                            className="object-cover object-top transition-transform duration-[1800ms] ease-in-out group-hover:-translate-y-[24%]"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
@@ -1579,12 +1603,14 @@ const CaseStudiesSection: React.FC<{
                   }`}
                 >
                   <div className="rounded-[24px] overflow-hidden border border-white/15 bg-white/[0.04] p-2.5 shadow-2xl">
-                    <div className="rounded-[18px] overflow-hidden aspect-[16/10] bg-navy">
-                      <img
+                    <div className="relative rounded-[18px] overflow-hidden aspect-[16/10] bg-navy">
+                      <Image
                         src={cs.image}
                         alt={cs.imageAlt}
                         loading="lazy"
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
                       />
                     </div>
                   </div>
@@ -1777,11 +1803,13 @@ const BeforeAfterRedesignSection: React.FC = () => {
         >
           {/* Base Layer: AFTER (Redesigned Website) */}
           <div className="absolute inset-0 w-full h-full">
-            <img
+            <Image
               src={activeItem.afterImage}
               alt={`After redesign of ${activeItem.clientName}`}
               loading="lazy"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover"
             />
             <div className="absolute bottom-5 right-5 hidden sm:block max-w-xs p-4 rounded-2xl bg-navy/90 border border-primary/50 backdrop-blur-md text-white shadow-xl">
               <div className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-1.5">
@@ -1803,11 +1831,13 @@ const BeforeAfterRedesignSection: React.FC = () => {
             className="absolute inset-0 w-full h-full overflow-hidden"
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           >
-            <img
+            <Image
               src={activeItem.beforeImage}
               alt={`Before redesign of ${activeItem.clientName}`}
               loading="lazy"
-              className="w-full h-full object-cover grayscale contrast-75 brightness-75"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover grayscale contrast-75 brightness-75"
             />
             <div className="absolute inset-0 bg-navy/40" />
             <div className="absolute bottom-5 left-5 hidden sm:block max-w-xs p-4 rounded-2xl bg-navy/90 border border-white/20 backdrop-blur-md text-white shadow-xl">
@@ -2024,11 +2054,13 @@ const ClientVoicesSection: React.FC<{
               }}
               className="group relative rounded-[24px] overflow-hidden aspect-[4/5] bg-navy border border-navy-08 shadow-lg cursor-pointer focus-visible:outline-2 focus-visible:outline-primary"
             >
-              <img
+              <Image
                 src={vid.image}
                 alt={`${vid.name}, ${vid.role} at ${vid.company} video testimonial`}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-75"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-75"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/20" />
 
@@ -2147,12 +2179,14 @@ const YourProjectNextCTA: React.FC<{
                   key={proj.id}
                   className="rounded-[18px] overflow-hidden border border-white/15 bg-white/[0.05] p-2"
                 >
-                  <div className="rounded-[12px] overflow-hidden aspect-[16/10] bg-navy mb-2">
-                    <img
+                  <div className="relative rounded-[12px] overflow-hidden aspect-[16/10] bg-navy mb-2">
+                    <Image
                       src={proj.images[0]}
                       alt={proj.title}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 20vw"
+                      className="object-cover"
                     />
                   </div>
                   <div className="px-1">
@@ -2302,11 +2336,13 @@ const ProjectQuickViewModal: React.FC<{
         <div className="p-6 sm:p-8 space-y-7">
           {/* Image Gallery / Slider with Thumbnails */}
           <div className="space-y-3">
-            <div className="rounded-[20px] overflow-hidden border border-navy-15 bg-navy aspect-[16/9]">
-              <img
+            <div className="relative rounded-[20px] overflow-hidden border border-navy-15 bg-navy aspect-[16/9]">
+              <Image
                 src={project.images[activeImgIdx] || project.images[0]}
                 alt={`${project.title} preview ${activeImgIdx + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover"
               />
             </div>
 
@@ -2317,16 +2353,18 @@ const ProjectQuickViewModal: React.FC<{
                     key={idx}
                     type="button"
                     onClick={() => setActiveImgIdx(idx)}
-                    className={`w-24 aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                    className={`relative w-24 aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                       activeImgIdx === idx
                         ? 'border-primary ring-2 ring-primary/30'
                         : 'border-navy-15 opacity-65 hover:opacity-100'
                     }`}
                   >
-                    <img
+                    <Image
                       src={imgUrl}
                       alt={`${project.title} thumbnail ${idx + 1}`}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="96px"
+                      className="object-cover"
                     />
                   </button>
                 ))}
@@ -2494,10 +2532,12 @@ const ClientVideoModal: React.FC<{
         </div>
 
         <div className="relative aspect-video bg-navy flex items-center justify-center p-6 text-center">
-          <img
+          <Image
             src={item.image}
             alt={item.company}
-            className="absolute inset-0 w-full h-full object-cover opacity-35"
+            fill
+            sizes="(max-width: 768px) 100vw, 672px"
+            className="object-cover opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
 

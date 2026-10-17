@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1219,10 +1220,12 @@ const HomeDecorFurniture: React.FC<{
                         >
                           {/* Room Photo Area */}
                           <div className="relative flex-1 rounded-[18px] overflow-hidden bg-navy">
-                            <img
+                            <Image
                               src={scene.image}
                               alt={scene.imageAlt}
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="(max-width: 1024px) 100vw, 40vw"
+                              className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/15 to-transparent" />
 
@@ -1405,11 +1408,13 @@ const HomeDecorFurniture: React.FC<{
 
                     {/* Polaroid Photo Square */}
                     <div className="aspect-[4/3] rounded-[12px] overflow-hidden bg-navy mb-3.5 relative">
-                      <img
+                      <Image
                         src={seg.image}
                         alt={seg.imageAlt}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 640px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
                       <span className="absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white/95 text-primary flex items-center justify-center shadow-sm">
@@ -2712,12 +2717,16 @@ const HomeDecorFurniture: React.FC<{
                       className="w-full text-left flex items-center gap-3 sm:gap-4 group cursor-pointer focus:outline-none"
                     >
                       {/* Small Lifestyle Thumbnail on Far Left */}
-                      <img
-                        src={item.thumb}
-                        alt={item.title}
-                        loading="lazy"
-                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border border-navy-08 shrink-0"
-                      />
+                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-navy-08 shrink-0">
+                        <Image
+                          src={item.thumb}
+                          alt={item.title}
+                          loading="lazy"
+                          fill
+                          sizes="56px"
+                          className="object-cover"
+                        />
+                      </div>
 
                       {/* Big Number (01–08) */}
                       <span
@@ -2861,11 +2870,13 @@ const HomeDecorFurniture: React.FC<{
 
                   {/* Product Photo Inside Phone */}
                   <div className="aspect-[16/10] rounded-xl overflow-hidden bg-navy mb-3 relative">
-                    <img
+                    <Image
                       src={IMG_ROOM_LIVING}
                       alt="3-Seater Sofa on mobile product page"
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="290px"
+                      className="object-cover"
                     />
                     <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-white/95 text-navy font-mono text-[10px] font-extrabold">
                       7.0 × 3.0 ft
@@ -3160,11 +3171,13 @@ const HomeDecorFurniture: React.FC<{
                   <div className="relative pr-0 sm:pr-16 pb-14">
                     {/* Lifestyle Product Photo */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-navy border-2 border-primary shadow-md">
-                      <img
+                      <Image
                         src={IMG_CASE_STUDY_SOFA}
                         alt="Oak & Loom Home furniture product and showroom growth case study"
                         loading="lazy"
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 55vw"
+                        className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-transparent to-transparent" />
 
@@ -3246,10 +3259,12 @@ const HomeDecorFurniture: React.FC<{
 
                 {/* Client Quote with Avatar */}
                 <div className="pt-3 flex items-start gap-3.5">
-                  <img
+                  <Image
                     src={IMG_AVATAR_CLIENT}
                     alt={FURNITURE_CASE_STUDY.clientName}
                     loading="lazy"
+                    width={44}
+                    height={44}
                     className="w-11 h-11 rounded-full object-cover border-2 border-primary shrink-0 mt-0.5"
                   />
                   <div>
@@ -3305,11 +3320,13 @@ const HomeDecorFurniture: React.FC<{
               {/* Small Lifestyle Photo Card at Top of Left Column */}
               <div className="rounded-3xl bg-navy text-white overflow-hidden border border-navy shadow-lg">
                 <div className="aspect-[16/9] relative overflow-hidden">
-                  <img
+                  <Image
                     src={IMG_ROOM_LIVING}
                     alt="Furniture store and showroom consultation"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
                   <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary text-white text-[10px] font-extrabold uppercase tracking-wider">
@@ -3477,22 +3494,34 @@ const HomeDecorFurniture: React.FC<{
               aria-hidden="true"
               className="hidden lg:grid grid-cols-2 gap-3 absolute top-6 bottom-6 right-6 w-[48%] opacity-15 pointer-events-none"
             >
-              <img
-                src={IMG_ROOM_LIVING}
-                alt=""
-                className="w-full h-full object-cover rounded-2xl"
-              />
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <Image
+                  src={IMG_ROOM_LIVING}
+                  alt=""
+                  fill
+                  sizes="24vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="grid grid-rows-2 gap-3">
-                <img
-                  src={IMG_ROOM_BEDROOM}
-                  alt=""
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-                <img
-                  src={IMG_ROOM_DINING}
-                  alt=""
-                  className="w-full h-full object-cover rounded-2xl"
-                />
+                <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                  <Image
+                    src={IMG_ROOM_BEDROOM}
+                    alt=""
+                    fill
+                    sizes="24vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                  <Image
+                    src={IMG_ROOM_DINING}
+                    alt=""
+                    fill
+                    sizes="24vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
 

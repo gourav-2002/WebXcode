@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1124,10 +1125,13 @@ const TravelHospitality: React.FC<{
               <div className="relative">
                 {/* Large Rounded Destination/Resort Photo */}
                 <div className="relative rounded-[28px] overflow-hidden aspect-[16/10] bg-navy border-2 border-white/15 shadow-2xl">
-                  <img
+                  <Image
                     src={IMG_RESORT_HERO}
                     alt="Luxury mountain and coastal resort pool deck welcoming direct-booking guests"
-                    className="w-full h-full object-cover"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
 
@@ -2157,12 +2161,14 @@ const TravelHospitality: React.FC<{
                           }`}
                         >
                           {/* Room Photo (4 cols) */}
-                          <div className="sm:col-span-4 aspect-[16/10] rounded-xl overflow-hidden bg-navy">
-                            <img
+                          <div className="relative sm:col-span-4 aspect-[16/10] rounded-xl overflow-hidden bg-navy">
+                            <Image
                               src={room.image}
                               alt={room.imageAlt}
                               loading="lazy"
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                              className="object-cover"
                             />
                           </div>
 
@@ -2451,11 +2457,13 @@ const TravelHospitality: React.FC<{
                         <div>
                           {/* Destination Photo Thumbnail */}
                           <div className="aspect-[16/9] rounded-xl overflow-hidden bg-navy mb-4 border border-navy-08 relative">
-                            <img
+                            <Image
                               src={card.image}
                               alt={card.imageAlt}
                               loading="lazy"
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                              className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
                             <span className="absolute bottom-2 left-2.5 font-mono text-[10px] font-extrabold text-white bg-navy/80 px-2.5 py-0.5 rounded-full">
@@ -2836,10 +2844,12 @@ const TravelHospitality: React.FC<{
               {/* Client Quote + CTA Row */}
               <div className="p-6 rounded-2xl bg-navy text-white flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div className="flex items-start gap-4 max-w-3xl">
-                  <img
+                  <Image
                     src={IMG_CLIENT_AVATAR}
                     alt={KEY_CARD_CASE_STUDY.clientName}
                     loading="lazy"
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-primary shrink-0 mt-1"
                   />
                   <div>

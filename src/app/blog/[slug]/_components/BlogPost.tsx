@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import {
@@ -524,11 +525,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
           </div>
 
           {/* Full-Width Rounded (24px) Cover Image (max ~1100px) with Soft Shadow */}
-          <div className="rounded-[24px] overflow-hidden border border-navy-08 shadow-soft bg-navy aspect-[16/9]">
-            <img
+          <div className="relative rounded-[24px] overflow-hidden border border-navy-08 shadow-soft bg-navy aspect-[16/9]">
+            <Image
               src={post.coverImage}
               alt={post.coverAlt}
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 1100px) 100vw, 1100px"
+              className="object-cover"
             />
           </div>
         </div>
@@ -773,10 +777,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
                       return (
                         <figure key={idx} className="my-8">
                           <div className="rounded-[20px] overflow-hidden border border-navy-08 shadow-soft bg-navy">
-                            <img
+                            <Image
                               src={block.src}
                               alt={block.alt}
                               loading="lazy"
+                              width={1200}
+                              height={675}
+                              sizes="(max-width: 800px) 100vw, 800px"
                               className="w-full h-auto object-cover"
                             />
                           </div>
@@ -1167,12 +1174,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
               href={`/blog/${prevPost.slug}`}
               className="group bg-white rounded-[20px] p-5 sm:p-6 border border-navy-08 hover:border-primary shadow-soft transition-all flex items-center gap-4"
             >
-              <div className="w-24 h-20 rounded-[14px] overflow-hidden bg-navy shrink-0">
-                <img
+              <div className="relative w-24 h-20 rounded-[14px] overflow-hidden bg-navy shrink-0">
+                <Image
                   src={prevPost.coverImage}
                   alt={prevPost.coverAlt}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="96px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="min-w-0 flex-1">
@@ -1206,12 +1215,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
                   {nextPost.title}
                 </h3>
               </div>
-              <div className="w-24 h-20 rounded-[14px] overflow-hidden bg-navy shrink-0">
-                <img
+              <div className="relative w-24 h-20 rounded-[14px] overflow-hidden bg-navy shrink-0">
+                <Image
                   src={nextPost.coverImage}
                   alt={nextPost.coverAlt}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="96px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </Link>
@@ -1254,11 +1265,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenQuoteModal: propOpenQuoteModa
                 >
                   <div>
                     <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                      <img
+                      <Image
                         src={rel.coverImage}
                         alt={rel.coverAlt}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-primary text-[11px] font-bold uppercase tracking-wider shadow-sm">
                         {rel.category}

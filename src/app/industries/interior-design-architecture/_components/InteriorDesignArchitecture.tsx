@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -777,10 +778,12 @@ const InteriorDesignArchitecture: React.FC<{
               >
                 {/* BASE LAYER: BLUEPRINT WIREFRAME + CAD PHOTO VERSION */}
                 <div className="absolute inset-0 bg-navy arch-drafting-grid-dark">
-                  <img
+                  <Image
                     src={interiorIndustry.image || portfolioShowcase}
                     alt="Architectural blueprint elevation of luxury residential living space"
-                    className="w-full h-full object-cover opacity-35 mix-blend-luminosity contrast-150 invert"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover opacity-35 mix-blend-luminosity contrast-150 invert"
                   />
                   {/* Architectural SVG CAD Overlay Lines */}
                   <svg
@@ -905,10 +908,12 @@ const InteriorDesignArchitecture: React.FC<{
                   }}
                   className="absolute inset-0"
                 >
-                  <img
+                  <Image
                     src={interiorIndustry.image || portfolioShowcase}
                     alt="Completed luxury architectural living room and interior design"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-navy/25" />
                 </div>
@@ -1204,18 +1209,26 @@ const InteriorDesignArchitecture: React.FC<{
                   </div>
                   <div className="p-4 space-y-3 grayscale opacity-75">
                     <div className="grid grid-cols-3 gap-2">
-                      <img
-                        src={webDevWorkspace}
-                        alt="Cramped thumbnail gallery preview"
-                        loading="lazy"
-                        className="h-16 w-full object-cover rounded-[4px]"
-                      />
-                      <img
-                        src={agencyTeamCollab}
-                        alt="Small uncropped project thumbnail"
-                        loading="lazy"
-                        className="h-16 w-full object-cover rounded-[4px]"
-                      />
+                      <div className="relative h-16 w-full rounded-[4px] overflow-hidden">
+                        <Image
+                          src={webDevWorkspace}
+                          alt="Cramped thumbnail gallery preview"
+                          loading="lazy"
+                          fill
+                          sizes="120px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="relative h-16 w-full rounded-[4px] overflow-hidden">
+                        <Image
+                          src={agencyTeamCollab}
+                          alt="Small uncropped project thumbnail"
+                          loading="lazy"
+                          fill
+                          sizes="120px"
+                          className="object-cover"
+                        />
+                      </div>
                       <div className="h-16 rounded-[4px] bg-navy/10 flex items-center justify-center text-[10px] font-mono text-navy-50">
                         Loading...
                       </div>
@@ -1277,11 +1290,13 @@ const InteriorDesignArchitecture: React.FC<{
                     </span>
                   </div>
                   <div className="relative h-44 overflow-hidden">
-                    <img
+                    <Image
                       src={interiorIndustry.image || portfolioShowcase}
                       alt="Full-screen architectural portfolio showcase"
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
@@ -1471,11 +1486,13 @@ const InteriorDesignArchitecture: React.FC<{
 
             {/* Interactive Mockup Canvas */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-navy overflow-hidden">
-              <img
+              <Image
                 src={interiorIndustry.image || portfolioShowcase}
                 alt="Interior design studio website anatomy mockup"
                 loading="lazy"
-                className="w-full h-full object-cover opacity-80"
+                fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-navy/30" />
 
@@ -2142,11 +2159,13 @@ const InteriorDesignArchitecture: React.FC<{
               {/* Left Page (6 cols): Tall Interior Photo + Small Uppercase Caption */}
               <div className="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between bg-primary-50/25">
                 <div className="relative rounded-[8px] overflow-hidden aspect-[4/3] sm:aspect-[5/4] border border-navy-15">
-                  <img
+                  <Image
                     src={interiorIndustry.image || portfolioShowcase}
                     alt="The Verandah Residence turnkey architectural interior project"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
                   />
                   <span className="absolute top-3 left-3 px-2.5 py-1 bg-navy/85 text-white text-[10px] font-mono uppercase tracking-widest">
                     ISSUE 08 // PORTFOLIO SPREAD
@@ -2316,11 +2335,13 @@ const InteriorDesignArchitecture: React.FC<{
                 <span className="pointer-events-none absolute bottom-1.5 right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-primary" />
 
                 <div className="rounded-[8px] overflow-hidden aspect-[4/5] bg-navy relative">
-                  <img
+                  <Image
                     src={aboutValuesCollaboration}
                     alt="Architects and interior designers reviewing material boards and blueprints"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
 
@@ -2416,11 +2437,13 @@ const InteriorDesignArchitecture: React.FC<{
         className="relative py-20 lg:py-28 bg-navy text-white overflow-hidden"
       >
         {/* Full-Bleed Interior Photograph + ~80% Navy Overlay + Faint Blueprint Grid */}
-        <img
+        <Image
           src={interiorIndustry.image || portfolioShowcase}
           alt="Luxury architectural interior studio backdrop"
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-navy/85" />
         <div className="absolute inset-0 arch-drafting-grid-dark opacity-50 pointer-events-none" />

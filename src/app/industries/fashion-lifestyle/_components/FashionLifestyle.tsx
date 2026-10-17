@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1154,10 +1155,13 @@ const FashionLifestyle: React.FC<{
             {/* Center-Right Column (6 cols): Tall Editorial Model Cover Frame + Magazine Barcode */}
             <div className="lg:col-span-6 relative">
               <div className="relative mx-auto max-w-[520px] rounded-[28px] overflow-hidden border-2 border-white/25 bg-navy shadow-[0_28px_70px_rgba(5,113,194,0.28)] aspect-[4/5]">
-                <img
+                <Image
                   src={IMG_EDITORIAL_COVER}
                   alt="High-fashion editorial collection showcase on luxury e-commerce website"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
 
@@ -1363,11 +1367,13 @@ const FashionLifestyle: React.FC<{
                     >
                       {/* Tall 3:4 Portrait Photo Card */}
                       <div className="aspect-[3/4] relative overflow-hidden">
-                        <img
+                        <Image
                           src={seg.image}
                           alt={seg.imageAlt}
                           loading="lazy"
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                          className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
 
@@ -1839,11 +1845,13 @@ const FashionLifestyle: React.FC<{
             <div className="grid grid-cols-1 lg:grid-cols-12">
               {/* Left (6 cols): Campaign Image with Big Overlay Title "THE MONSOON EDIT" */}
               <div className="lg:col-span-6 relative min-h-[340px] sm:min-h-[420px] bg-navy overflow-hidden">
-                <img
+                <Image
                   src={IMG_RUNWAY_2}
                   alt="The Monsoon Edit Drop 07 collection launch campaign"
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
 
@@ -2274,11 +2282,13 @@ const FashionLifestyle: React.FC<{
 
                 {/* Left Page (6 cols): Full-Bleed Editorial Photo + Look Title & Styling Note */}
                 <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[500px] bg-navy overflow-hidden">
-                  <img
+                  <Image
                     src={currentLookSpread.editorialImage}
                     alt={currentLookSpread.editorialAlt}
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
 
@@ -2338,11 +2348,13 @@ const FashionLifestyle: React.FC<{
                           >
                             <div className="flex items-center gap-3.5 min-w-0">
                               <div className="relative w-14 h-16 rounded-xl overflow-hidden bg-navy shrink-0 border border-navy-08">
-                                <img
+                                <Image
                                   src={item.thumb}
                                   alt={item.name}
                                   loading="lazy"
-                                  className="w-full h-full object-cover"
+                                  fill
+                                  sizes="56px"
+                                  className="object-cover"
                                 />
                                 <span className="absolute top-1 left-1 w-4 h-4 rounded-full bg-navy/85 text-white font-mono text-[9px] font-extrabold flex items-center justify-center">
                                   {idx + 1}
@@ -2511,11 +2523,13 @@ const FashionLifestyle: React.FC<{
               >
                 {/* 9:16 Vertical Screen Viewport */}
                 <div className="relative aspect-[9/16] rounded-[22px] overflow-hidden bg-navy">
-                  <img
+                  <Image
                     src={frame.image}
                     alt={frame.imageAlt}
                     loading="lazy"
-                    className={`w-full h-full object-cover ${
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className={`object-cover ${
                       aiVideosPlaying && !prefersReducedMotion
                         ? 'ai-video-motion'
                         : ''
@@ -2596,11 +2610,13 @@ const FashionLifestyle: React.FC<{
           <div className="rounded-[32px] bg-white border-2 border-navy-15 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
             {/* Left (5 cols): Editorial Photo with Bold Diagonal "SOLD OUT IN 4 HOURS" Blue Ribbon */}
             <div className="lg:col-span-5 relative min-h-[360px] sm:min-h-[460px] bg-navy overflow-hidden">
-              <img
+              <Image
                 src={IMG_EDITORIAL_COVER}
                 alt="Sold out fashion collection drop case study"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/25 to-transparent" />
 
@@ -2694,10 +2710,12 @@ const FashionLifestyle: React.FC<{
 
               <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-navy-08">
                 <div className="flex items-center gap-3">
-                  <img
+                  <Image
                     src={IMG_AVATAR_CLIENT}
                     alt={SOLD_OUT_CASE_STUDY.clientName}
                     loading="lazy"
+                    width={44}
+                    height={44}
                     className="w-11 h-11 rounded-full object-cover border-2 border-primary"
                   />
                   <div>

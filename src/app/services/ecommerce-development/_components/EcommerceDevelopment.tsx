@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1085,10 +1086,12 @@ const EcommerceDevelopment: React.FC<EcommerceDevelopmentProps> = ({ onOpenQuote
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                       {/* Product Thumbnail */}
                       <div className="sm:col-span-4 relative rounded-xl overflow-hidden bg-navy aspect-[4/3] sm:aspect-square border border-navy-08">
-                        <img
+                        <Image
                           src={activeHeroProduct.image}
                           alt={activeHeroProduct.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 640px) 100vw, 33vw"
+                          className="object-cover"
                         />
                         <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-navy/85 text-white font-mono text-[10px] font-bold">
                           {activeHeroProduct.stockCount} in stock

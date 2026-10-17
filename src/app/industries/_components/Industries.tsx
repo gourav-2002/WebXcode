@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1481,11 +1482,13 @@ const Industries: React.FC<IndustriesProps> = ({ onOpenQuoteModal: propOpenQuote
                             {/* Image on top (16:10, rounded) with navy gradient & overlapping circular icon badge */}
                             <div className="relative mb-7">
                               <div className="aspect-[16/10] rounded-[16px] overflow-hidden bg-navy relative">
-                                <img
+                                <Image
                                   src={ind.image}
                                   alt={ind.imageAlt}
                                   loading="lazy"
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
                               </div>
@@ -1708,11 +1711,13 @@ const Industries: React.FC<IndustriesProps> = ({ onOpenQuoteModal: propOpenQuote
                 >
                   {/* Top: Industry Image Banner with Icon Badge, Name & Tagline Overlaid */}
                   <div className="relative rounded-[18px] overflow-hidden aspect-[16/7] bg-navy mb-8 border border-white/10">
-                    <img
+                    <Image
                       src={activeDeepDiveIndustry.image}
                       alt={activeDeepDiveIndustry.imageAlt}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">

@@ -1,6 +1,7 @@
 'use client';
 import { useQuoteModal } from '@/app/_context/QuoteModalProvider';
 import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
@@ -1515,10 +1516,12 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
                             Engineered to <span className="text-primary">Convert &amp; Scale</span>
                           </div>
                           <div className="relative rounded-xl overflow-hidden border border-navy-15 aspect-[16/8] bg-navy">
-                            <img
+                            <Image
                               src={IMG_HERO_SHOWCASE}
                               alt="Live built website preview inside split build window"
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="(max-width: 1024px) 100vw, 50vw"
+                              className="object-cover"
                             />
                           </div>
                           <div className="flex items-center justify-between pt-1">
@@ -2776,11 +2779,14 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
 
                     {/* Laptop Screen Viewport */}
                     <div className="relative aspect-[16/10] overflow-hidden rounded-b-[12px] bg-navy">
-                      <img
+                      <Image
                         src={activePortfolio.image}
                         alt={activePortfolio.imageAlt}
                         loading="lazy"
-                        className="w-full h-[135%] object-cover object-top transition-transform duration-1000 ease-in-out group-hover:-translate-y-14"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 55vw"
+                        style={{ height: '135%' }}
+                        className="object-cover object-top transition-transform duration-1000 ease-in-out group-hover:-translate-y-14"
                       />
                     </div>
                   </div>
@@ -2789,11 +2795,13 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
                   <div className="hidden sm:block absolute -bottom-6 right-4 w-40 sm:w-44 rounded-[22px] bg-navy border-2 border-white/25 p-2 shadow-2xl">
                     <div className="w-10 h-1 rounded-full bg-white/25 mx-auto mb-1.5" />
                     <div className="relative aspect-[9/16] rounded-[14px] overflow-hidden bg-navy">
-                      <img
+                      <Image
                         src={activePortfolio.image}
                         alt={`${activePortfolio.name} mobile view`}
                         loading="lazy"
-                        className="w-full h-full object-cover object-center"
+                        fill
+                        sizes="176px"
+                        className="object-cover object-center"
                       />
                       <div className="absolute bottom-2 left-2 right-2 px-2 py-1 rounded-lg bg-navy/90 border border-white/15 text-[10px] font-mono text-primary-100 text-center">
                         Mobile 100%
@@ -2875,12 +2883,14 @@ const WebsiteDevelopment: React.FC<WebsiteDevelopmentProps> = ({ onOpenQuoteModa
                       : 'bg-white/[0.04] border-white/10 hover:border-white/30'
                   }`}
                 >
-                  <div className="rounded-xl overflow-hidden aspect-[16/9] bg-navy mb-2.5 border border-white/10">
-                    <img
+                  <div className="relative rounded-xl overflow-hidden aspect-[16/9] bg-navy mb-2.5 border border-white/10">
+                    <Image
                       src={proj.image}
                       alt={proj.name}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                      className="object-cover"
                     />
                   </div>
                   <div>

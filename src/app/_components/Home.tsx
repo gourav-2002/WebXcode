@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import {
@@ -470,12 +471,13 @@ export const HeroSection: React.FC<{ onOpenQuoteModal: (service?: string) => voi
 
             <div className="relative z-10 rounded-[20px] p-2.5 bg-white/[0.06] border border-white/15 backdrop-blur-md shadow-2xl">
               <div className="relative rounded-[14px] overflow-hidden bg-navy aspect-[16/11]">
-                <img
+                <Image
                   src={HERO_IMG}
                   alt="WebXCode 3D laptop and mobile phone mockup showcasing enterprise web and AI solutions"
-                  referrerPolicy="no-referrer"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover object-center"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
               </div>
@@ -658,12 +660,13 @@ export const ServicesBentoSection: React.FC<{
             className="md:col-span-2 lg:col-span-2 lg:row-span-2"
           >
             <div className="mt-6 rounded-[16px] overflow-hidden border border-navy-08 bg-navy relative aspect-[16/9]">
-              <img
+              <Image
                 src={HERO_IMG}
                 alt="Custom Website Development UI showcase on laptop"
                 loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3.5 py-2 rounded-xl bg-navy/85 backdrop-blur-md border border-white/15 text-white text-[12px]">
                 <span className="font-semibold">99.9% Core Web Vitals Pass Rate</span>
@@ -1124,13 +1127,14 @@ export const WhyChooseSection: React.FC<{ onOpenQuoteModal: (service?: string) =
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           <div className="lg:col-span-6 relative">
-            <div className="rounded-[20px] overflow-hidden border border-navy-08 shadow-soft aspect-[4/3] bg-navy">
-              <img
+            <div className="relative rounded-[20px] overflow-hidden border border-navy-08 shadow-soft aspect-[4/3] bg-navy">
+              <Image
                 src={TEAM_IMG}
                 alt="WebXCode engineering and design team collaborating in modern studio"
                 loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
 
@@ -1372,12 +1376,13 @@ export const IndustriesSection: React.FC<{ onOpenQuoteModal: (service?: string) 
                 className="group min-w-[200px] lg:min-w-0 shrink-0 cursor-pointer"
               >
                 <div className="relative rounded-[16px] overflow-hidden aspect-[4/3] bg-navy">
-                  <img
+                  <Image
                     src={ind.img}
                     alt={ind.name}
                     loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 12vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
                 </div>
@@ -1526,12 +1531,14 @@ export const FeaturedProjectsSection: React.FC<{
                 <span className="text-[11px] text-primary font-bold">{primaryProject.category}</span>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden bg-navy">
-                <img
+                <Image
                   src={primaryProject.image}
                   alt={primaryProject.title}
                   loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-[125%] object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-12"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  style={{ height: '125%' }}
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-12"
                 />
               </div>
             </div>
@@ -1573,12 +1580,14 @@ export const FeaturedProjectsSection: React.FC<{
                     <span className="text-[10px] text-white/60">https://{proj.id}.com</span>
                   </div>
                   <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                    <img
+                    <Image
                       src={proj.image}
                       alt={proj.title}
                       loading="lazy"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-[125%] object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-8"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      style={{ height: '125%' }}
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:-translate-y-8"
                     />
                   </div>
                 </div>
@@ -2069,12 +2078,13 @@ export const BlogInsightsSection: React.FC = () => {
             >
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-navy">
-                  <img
+                  <Image
                     src={post.image}
                     alt={post.title}
                     loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-primary shadow-sm">
                     {post.category}
