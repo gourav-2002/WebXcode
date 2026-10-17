@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   ChevronDown,
   Menu,
@@ -145,10 +146,8 @@ type MegaMenuKey = 'services' | 'ai' | 'industries' | 'locations' | 'about' | nu
 const SERVICES_MEGA = {
   webAndApps: [
     { name: 'Website Development', slug: 'website-development', to: '/services/website-development' },
-    { name: 'Web Application Development', slug: 'web-application-development', to: '/services#web-application-development' },
     { name: 'E-commerce Development', slug: 'ecommerce-development', to: '/services/ecommerce-development' },
     { name: 'Mobile App Development', slug: 'mobile-app-development', to: '/services/mobile-app-development' },
-    { name: 'UI/UX Design', slug: 'ui-ux-design', to: '/services#ui-ux-design' },
     { name: 'WordPress & Shopify Development', slug: 'wordpress-shopify-development', to: '/services/wordpress-shopify-development' },
     { name: 'Website Maintenance & Support', slug: 'website-maintenance-support', to: '/services/website-maintenance-support' },
     { name: 'Managed IT Services', slug: 'managed-it-services', to: '/services/managed-it-services', badge: 'NEW' },
@@ -166,9 +165,7 @@ const SERVICES_MEGA = {
   brandAndContent: [
     { name: 'Branding & Logo Design', slug: 'branding-logo-design', to: '/services/branding-logo-design' },
     { name: 'Creative & Communication', slug: 'creative-communication', to: '/services/creative-communication' },
-    { name: 'Content Marketing', slug: 'content-marketing', to: '/services#content-marketing' },
     { name: 'Copywriting', slug: 'copywriting', to: '/services/copywriting' },
-    { name: 'Online Reputation Management', slug: 'online-reputation-management', to: '/services#online-reputation-management' },
     { name: 'Email Marketing', slug: 'email-marketing', to: '/services/email-marketing' },
   ],
 };
@@ -277,7 +274,7 @@ export const MegaMenu: React.FC<{
                     {SERVICES_MEGA.webAndApps.map((item) => (
                       <li key={item.name}>
                         <Link
-                          to={item.to}
+                          href={item.to}
                           onClick={onClose}
                           className="group flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                         >
@@ -298,7 +295,7 @@ export const MegaMenu: React.FC<{
                     {SERVICES_MEGA.seoAndPerformance.map((item) => (
                       <li key={item.name}>
                         <Link
-                          to={item.to}
+                          href={item.to}
                           onClick={onClose}
                           className="group flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                         >
@@ -319,7 +316,7 @@ export const MegaMenu: React.FC<{
                     {SERVICES_MEGA.brandAndContent.map((item) => (
                       <li key={item.name}>
                         <Link
-                          to={item.to}
+                          href={item.to}
                           onClick={onClose}
                           className="group flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                         >
@@ -340,7 +337,7 @@ export const MegaMenu: React.FC<{
                 </p>
                 <div className="flex items-center gap-3">
                   <Link
-                    to="/services"
+                    href="/services"
                     onClick={onClose}
                     className="inline-flex items-center gap-1.5 text-[13px] font-bold text-primary hover:underline mr-2"
                   >
@@ -372,7 +369,7 @@ export const MegaMenu: React.FC<{
                   {AI_MEGA.aiBuild.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.to}
+                        href={item.to}
                         onClick={onClose}
                         className="flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                       >
@@ -393,7 +390,7 @@ export const MegaMenu: React.FC<{
                   {AI_MEGA.aiMarketing.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.to}
+                        href={item.to}
                         onClick={onClose}
                         className="flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                       >
@@ -414,7 +411,7 @@ export const MegaMenu: React.FC<{
                   {AI_MEGA.aiAutomation.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.to}
+                        href={item.to}
                         onClick={onClose}
                         className="flex items-center text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-0.5"
                       >
@@ -443,7 +440,7 @@ export const MegaMenu: React.FC<{
                 </div>
                 <div className="relative z-10">
                   <Link
-                    to="/ai-solutions"
+                    href="/ai-solutions"
                     onClick={onClose}
                     className="group inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer bg-primary text-white hover:bg-primary-700 shadow-soft px-4 py-2 text-[13px] gap-1.5 w-full"
                   >
@@ -466,7 +463,7 @@ export const MegaMenu: React.FC<{
                     {INDUSTRIES_MEGA.b2b.map((ind) => (
                       <li key={ind.slug}>
                         <Link
-                          to={ind.to}
+                          href={ind.to}
                           onClick={onClose}
                           className="flex items-center gap-2.5 text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-1"
                         >
@@ -485,7 +482,7 @@ export const MegaMenu: React.FC<{
                     {INDUSTRIES_MEGA.consumer.map((ind) => (
                       <li key={ind.slug}>
                         <Link
-                          to={ind.to}
+                          href={ind.to}
                           onClick={onClose}
                           className="flex items-center gap-2.5 text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-1"
                         >
@@ -504,7 +501,7 @@ export const MegaMenu: React.FC<{
                     {INDUSTRIES_MEGA.specialized.map((ind) => (
                       <li key={ind.slug}>
                         <Link
-                          to={ind.to}
+                          href={ind.to}
                           onClick={onClose}
                           className="flex items-center gap-2.5 text-[14px] font-medium text-navy-90 hover:text-primary transition-colors py-1"
                         >
@@ -523,7 +520,7 @@ export const MegaMenu: React.FC<{
                   Don&apos;t see your industry?{' '}
                   <strong className="font-bold text-navy">We adapt to any category.</strong>
                 </p>
-                <Link to="/industries" onClick={onClose}>
+                <Link href="/industries" onClick={onClose}>
                   <Button size="sm">View All Industries</Button>
                 </Link>
               </div>
@@ -541,7 +538,7 @@ export const MegaMenu: React.FC<{
                     city === 'Delhi' ? (
                       <Link
                         key={city}
-                        to="/locations/delhi"
+                        href="/locations/delhi"
                         onClick={onClose}
                         className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-primary-50 transition-colors group"
                       >
@@ -601,7 +598,7 @@ export const MegaMenu: React.FC<{
                 item.isRoute ? (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    href={item.href}
                     onClick={onClose}
                     className="p-4 rounded-2xl border border-navy-08 hover:border-primary-100 hover:bg-primary-50/50 transition-all group"
                   >
@@ -640,7 +637,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>('services');
   const headerRef = useRef<HTMLElement>(null);
-  const location = useLocation();
+  const pathname = usePathname();
+  const location = { pathname };
 
   const triggerQuoteModal = (service?: string) => {
     if (onOpenQuoteModal) {
@@ -679,7 +677,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
     { label: 'Services', key: 'services', to: '/services' },
     { label: 'AI Solutions', key: 'ai', to: '/ai-solutions' },
     { label: 'Industries', key: 'industries', to: '/industries' },
-    { label: 'Locations', key: 'locations' },
     { label: 'Our Work', to: '/our-work' },
     { label: 'About', key: 'about' },
     { label: 'Blog', to: '/blog' },
@@ -724,11 +721,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
               <span>+1 (800) 932-9263</span>
             </a>
             <span className="text-white/35">|</span>
-            <Link to="/about#careers" className="hover:text-white transition-colors">
+            <Link href="/about#careers" className="hover:text-white transition-colors">
               Careers
             </Link>
             <span className="text-white/35">|</span>
-            <Link to="/blog" className="hover:text-white transition-colors">
+            <Link href="/blog" className="hover:text-white transition-colors">
               Blog
             </Link>
           </div>
@@ -748,7 +745,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
           {/* Zone 1: Brand Wordmark */}
           <Link
-            to="/"
+            href="/"
             aria-label="WebXCode Home"
             className="focus-visible:outline-2 focus-visible:outline-primary rounded-lg shrink-0"
           >
@@ -772,9 +769,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
 
               if (item.key && item.to) {
                 return (
-                  <NavLink
+                  <Link
                     key={item.label}
-                    to={item.to}
+                    href={item.to}
                     aria-expanded={Boolean(isOpen)}
                     onMouseEnter={() => setActiveMega(item.key!)}
                     onClick={() => setActiveMega(null)}
@@ -795,7 +792,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                       }`}
                       strokeWidth={2}
                     />
-                  </NavLink>
+                  </Link>
                 );
               }
 
@@ -829,25 +826,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
               }
 
               if (item.to) {
+                const isActive = pathname === item.to || (item.to !== '/' && pathname.startsWith(item.to));
                 return (
-                  <NavLink
+                  <Link
                     key={item.label}
-                    to={item.to}
+                    href={item.to}
                     onMouseEnter={() => setActiveMega(null)}
-                    className={({ isActive }) =>
-                      `px-3.5 py-2 rounded-full text-[14px] font-semibold transition-all duration-150 whitespace-nowrap ${
-                        isSolid
-                          ? isActive
-                            ? 'bg-primary-50 text-primary'
-                            : 'text-navy-90 hover:bg-primary-50 hover:text-primary'
-                          : isActive
-                          ? 'bg-white/15 text-white'
-                          : 'text-white/85 hover:bg-white/10 hover:text-white'
-                      }`
-                    }
+                    className={`px-3.5 py-2 rounded-full text-[14px] font-semibold transition-all duration-150 whitespace-nowrap ${
+                      isSolid
+                        ? isActive
+                          ? 'bg-primary-50 text-primary'
+                          : 'text-navy-90 hover:bg-primary-50 hover:text-primary'
+                        : isActive
+                        ? 'bg-white/15 text-white'
+                        : 'text-white/85 hover:bg-white/10 hover:text-white'
+                    }`}
                   >
                     {item.label}
-                  </NavLink>
+                  </Link>
                 );
               }
 
@@ -905,7 +901,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
         <div className="fixed inset-0 z-50 lg:hidden bg-navy text-white flex flex-col justify-between overflow-y-auto">
           <div className="p-4 sm:p-6">
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
-              <Link to="/" onClick={() => setMobileOpen(false)}>
+              <Link href="/" onClick={() => setMobileOpen(false)}>
                 <WebXCodeLogo darkBg />
               </Link>
               <button
@@ -946,7 +942,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                         {SERVICES_MEGA.webAndApps.map((i) => (
                           <li key={i.name}>
                             <Link
-                              to={i.to}
+                              href={i.to}
                               onClick={() => setMobileOpen(false)}
                               className="block py-0.5 hover:text-white"
                             >
@@ -964,7 +960,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                         {SERVICES_MEGA.seoAndPerformance.map((i) => (
                           <li key={i.name}>
                             <Link
-                              to={i.to}
+                              href={i.to}
                               onClick={() => setMobileOpen(false)}
                               className="block py-0.5 hover:text-white"
                             >
@@ -982,7 +978,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                         {SERVICES_MEGA.brandAndContent.map((i) => (
                           <li key={i.name}>
                             <Link
-                              to={i.to}
+                              href={i.to}
                               onClick={() => setMobileOpen(false)}
                               className="block py-0.5 hover:text-white"
                             >
@@ -994,7 +990,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                     </div>
                     <div className="pt-2 border-t border-white/10">
                       <Link
-                        to="/services"
+                        href="/services"
                         onClick={() => setMobileOpen(false)}
                         className="inline-flex items-center gap-1.5 text-[14px] font-bold text-primary hover:underline"
                       >
@@ -1027,7 +1023,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                       (i) => (
                         <Link
                           key={i.name}
-                          to={i.to}
+                          href={i.to}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1 hover:text-white"
                         >
@@ -1037,7 +1033,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                     )}
                     <div className="pt-2 border-t border-white/10">
                       <Link
-                        to="/ai-solutions"
+                        href="/ai-solutions"
                         onClick={() => setMobileOpen(false)}
                         className="inline-flex items-center gap-1.5 text-[14px] font-bold text-primary hover:underline"
                       >
@@ -1076,7 +1072,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                       ].map((ind) => (
                         <Link
                           key={ind.slug}
-                          to={ind.to}
+                          href={ind.to}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1 hover:text-white"
                         >
@@ -1086,7 +1082,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                     </div>
                     <div className="pt-2 border-t border-white/10">
                       <Link
-                        to="/industries"
+                        href="/industries"
                         onClick={() => setMobileOpen(false)}
                         className="inline-flex items-center gap-1.5 text-[14px] font-bold text-primary hover:underline"
                       >
@@ -1098,47 +1094,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 )}
               </div>
 
-              {/* Locations Accordion */}
-              <div className="border-b border-white/10 pb-2">
-                <button
-                  onClick={() =>
-                    setMobileAccordion(mobileAccordion === 'locations' ? null : 'locations')
-                  }
-                  className="w-full py-3 flex items-center justify-between text-[17px] font-bold text-white"
-                >
-                  <span>Locations</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-primary transition-transform ${
-                      mobileAccordion === 'locations' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {mobileAccordion === 'locations' && (
-                  <div className="pb-4 pl-3 grid grid-cols-2 gap-2 text-[14px] text-white/80">
-                    {[...LOCATIONS_MEGA.india, ...LOCATIONS_MEGA.international].map((loc) =>
-                      loc === 'Delhi' ? (
-                        <Link
-                          key={loc}
-                          to="/locations/delhi"
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1 hover:text-white font-semibold text-primary"
-                        >
-                          {loc}
-                        </Link>
-                      ) : (
-                        <a
-                          key={loc}
-                          href="#footer"
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1 hover:text-white"
-                        >
-                          {loc}
-                        </a>
-                      )
-                    )}
-                  </div>
-                )}
-              </div>
 
               {/* About Accordion */}
               <div className="border-b border-white/10 pb-2">
@@ -1163,7 +1118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                       item.isRoute ? (
                         <Link
                           key={item.name}
-                          to={item.href}
+                          href={item.href}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1 hover:text-white"
                         >
@@ -1184,28 +1139,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 )}
               </div>
 
-              <NavLink
-                to="/our-work"
+              <Link
+                href="/our-work"
                 onClick={() => setMobileOpen(false)}
-                className={({ isActive }) =>
-                  `block py-3 border-b border-white/10 text-[17px] font-bold ${
-                    isActive ? 'text-primary' : 'text-white'
-                  }`
-                }
+                className={`block py-3 border-b border-white/10 text-[17px] font-bold ${
+                  pathname === '/our-work' ? 'text-primary' : 'text-white'
+                }`}
               >
                 Our Work
-              </NavLink>
-              <NavLink
-                to="/blog"
+              </Link>
+              <Link
+                href="/blog"
                 onClick={() => setMobileOpen(false)}
-                className={({ isActive }) =>
-                  `block py-3 border-b border-white/10 text-[17px] font-bold ${
-                    isActive ? 'text-primary' : 'text-white'
-                  }`
-                }
+                className={`block py-3 border-b border-white/10 text-[17px] font-bold ${
+                  pathname === '/blog' ? 'text-primary' : 'text-white'
+                }`}
               >
                 Blog
-              </NavLink>
+              </Link>
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Mail,
   Phone,
@@ -190,11 +190,11 @@ export const Footer: React.FC = () => {
           )}
         </div>
 
-        {/* 5 Columns */}
+        {/* Columns: Brand (lg:col-span-4) + 3 equal columns: Services, AI Solutions, Company (lg:col-span-8 -> grid-cols-3) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" aria-label="WebXCode Home" className="inline-block">
+            <Link href="/" aria-label="WebXCode Home" className="inline-block">
               <WebXCodeLogo darkBg />
             </Link>
             <div className="text-[13px] font-bold uppercase tracking-[0.18em] text-primary">
@@ -246,141 +246,121 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Col 2: Services (2 cols) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[15px] font-bold text-white mb-4">
-              <Link to="/services" className="hover:text-primary transition-colors">
-                Services
-              </Link>
-            </h4>
-            <ul className="space-y-2.5 text-[14px]">
-              {[
-                { name: 'Website Development', to: '/services/website-development' },
-                { name: 'Web App Development', to: '/services#web-application-development' },
-                { name: 'E-commerce Development', to: '/services/ecommerce-development' },
-                { name: 'Mobile App Development', to: '/services/mobile-app-development' },
-                { name: 'WordPress & Shopify Development', to: '/services/wordpress-shopify-development' },
-                { name: 'Website Maintenance & Support', to: '/services/website-maintenance-support' },
-                { name: 'Managed IT Services', to: '/services/managed-it-services' },
-                { name: 'SEO Services', to: '/services/seo-services' },
-                { name: 'Local SEO', to: '/services/local-seo' },
-                { name: 'AEO Services', to: '/services/aeo-services' },
-                { name: 'GEO (Generative Engine Optimization)', to: '/services/geo-generative-engine-optimization' },
-                { name: 'Performance Marketing', to: '/services/performance-marketing' },
-                { name: 'Google Ads', to: '/services/google-ads-sem' },
-                { name: 'Conversion Rate Optimization', to: '/services/conversion-rate-optimization' },
-                { name: 'Analytics & Tracking Setup', to: '/services/analytics-tracking-setup' },
-                { name: 'Branding & Logo Design', to: '/services/branding-logo-design' },
-                { name: 'Creative & Communication', to: '/services/creative-communication' },
-                { name: 'Copywriting', to: '/services/copywriting' },
-                { name: 'Email Marketing', to: '/services/email-marketing' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link to={item.to} className="hover:text-primary transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-1">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-1 text-[13px] font-bold text-primary hover:underline"
-                >
-                  <span>View All Services</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+          {/* Nav Columns: Services, AI Solutions, Company equally divided in remaining space */}
+          <div className="sm:col-span-2 lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10">
+            {/* Col 2: Services */}
+            <div>
+              <h4 className="text-[15px] font-bold text-white mb-4">
+                <Link href="/services" className="hover:text-primary transition-colors">
+                  Services
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: AI Solutions (2 cols) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[15px] font-bold text-white mb-4">
-              <Link to="/ai-solutions" className="hover:text-primary transition-colors">
-                AI Solutions
-              </Link>
-            </h4>
-            <ul className="space-y-2.5 text-[14px]">
-              {[
-                { name: 'AI Chatbot Development', to: '/ai-solutions/ai-chatbot-development' },
-                { name: 'WhatsApp AI Chatbot', to: '/ai-solutions/whatsapp-ai-chatbot' },
-                { name: 'AI Voice Agents', to: '/ai-solutions/ai-voice-agents' },
-                { name: 'Custom AI / LLM Integration', to: '/ai-solutions/custom-ai-llm-integration' },
-                { name: 'AI Generated Videos', to: '/ai-solutions/ai-generated-videos' },
-                { name: 'AI Content Creation', to: '/ai-solutions/ai-content-creation' },
-                { name: 'AI-Powered SEO', to: '/ai-solutions/ai-powered-seo' },
-                { name: 'AI Ad Creatives', to: '/ai-solutions/ai-ad-creatives' },
-                { name: 'AI Workflow Automation', to: '/ai-solutions/ai-workflow-automation' },
-                { name: 'AI Agents for Business', to: '/ai-solutions/ai-agents-for-business' },
-                { name: 'CRM & Lead Automation', to: '/ai-solutions/crm-lead-automation' },
-                { name: 'AI Analytics & Reporting', to: '/ai-solutions/ai-analytics-reporting' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link to={item.to} className="hover:text-primary transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-1">
-                <Link
-                  to="/ai-solutions"
-                  className="inline-flex items-center gap-1 text-[13px] font-bold text-primary hover:underline"
-                >
-                  <span>View All AI Solutions</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Company (2 cols) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[15px] font-bold text-white mb-4">Company</h4>
-            <ul className="space-y-2.5 text-[14px]">
-              {[
-                { name: 'About Us', href: '/about', isRoute: true },
-                { name: 'Our Work', href: '/our-work', isRoute: true },
-                { name: 'Industries', href: '/industries', isRoute: true },
-                { name: 'Case Studies', href: '/our-work#case-studies', isRoute: true },
-                { name: 'Careers', href: '/about#careers', isRoute: true },
-                { name: 'Blog', href: '/blog', isRoute: true },
-                { name: 'Contact Us', href: '/contact', isRoute: true },
-              ].map((item) => (
-                <li key={item.name}>
-                  {item.isRoute ? (
-                    <Link to={item.href} className="hover:text-primary transition-colors">
+              </h4>
+              <ul className="space-y-2.5 text-[14px]">
+                {[
+                  { name: 'Website Development', to: '/services/website-development' },
+                  { name: 'E-commerce Development', to: '/services/ecommerce-development' },
+                  { name: 'Mobile App Development', to: '/services/mobile-app-development' },
+                  { name: 'WordPress & Shopify Development', to: '/services/wordpress-shopify-development' },
+                  { name: 'Website Maintenance & Support', to: '/services/website-maintenance-support' },
+                  { name: 'Managed IT Services', to: '/services/managed-it-services' },
+                  { name: 'SEO Services', to: '/services/seo-services' },
+                  { name: 'Local SEO', to: '/services/local-seo' },
+                  { name: 'AEO Services', to: '/services/aeo-services' },
+                  { name: 'GEO (Generative Engine Optimization)', to: '/services/geo-generative-engine-optimization' },
+                  { name: 'Performance Marketing', to: '/services/performance-marketing' },
+                  { name: 'Google Ads', to: '/services/google-ads-sem' },
+                  { name: 'Conversion Rate Optimization', to: '/services/conversion-rate-optimization' },
+                  { name: 'Analytics & Tracking Setup', to: '/services/analytics-tracking-setup' },
+                  { name: 'Branding & Logo Design', to: '/services/branding-logo-design' },
+                  { name: 'Creative & Communication', to: '/services/creative-communication' },
+                  { name: 'Copywriting', to: '/services/copywriting' },
+                  { name: 'Email Marketing', to: '/services/email-marketing' },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.to} className="hover:text-primary transition-colors">
                       {item.name}
                     </Link>
-                  ) : (
-                    <a href={item.href} className="hover:text-primary transition-colors">
-                      {item.name}
-                    </a>
-                  )}
+                  </li>
+                ))}
+                <li className="pt-1">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-1 text-[13px] font-bold text-primary hover:underline"
+                  >
+                    <span>View All Services</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
+              </ul>
+            </div>
 
-          {/* Col 5: Locations (2 cols) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[15px] font-bold text-white mb-4">Locations</h4>
-            <ul className="space-y-2.5 text-[14px]">
-              {['Delhi', 'Noida', 'Gurgaon', 'Mumbai', 'Bangalore', 'USA', 'UK', 'UAE'].map(
-                (loc) => (
-                  <li key={loc}>
-                    {loc === 'Delhi' ? (
-                      <Link to="/locations/delhi" className="hover:text-primary transition-colors">
-                        {loc}
+            {/* Col 3: AI Solutions */}
+            <div>
+              <h4 className="text-[15px] font-bold text-white mb-4">
+                <Link href="/ai-solutions" className="hover:text-primary transition-colors">
+                  AI Solutions
+                </Link>
+              </h4>
+              <ul className="space-y-2.5 text-[14px]">
+                {[
+                  { name: 'AI Chatbot Development', to: '/ai-solutions/ai-chatbot-development' },
+                  { name: 'WhatsApp AI Chatbot', to: '/ai-solutions/whatsapp-ai-chatbot' },
+                  { name: 'AI Voice Agents', to: '/ai-solutions/ai-voice-agents' },
+                  { name: 'Custom AI / LLM Integration', to: '/ai-solutions/custom-ai-llm-integration' },
+                  { name: 'AI Generated Videos', to: '/ai-solutions/ai-generated-videos' },
+                  { name: 'AI Content Creation', to: '/ai-solutions/ai-content-creation' },
+                  { name: 'AI-Powered SEO', to: '/ai-solutions/ai-powered-seo' },
+                  { name: 'AI Ad Creatives', to: '/ai-solutions/ai-ad-creatives' },
+                  { name: 'AI Workflow Automation', to: '/ai-solutions/ai-workflow-automation' },
+                  { name: 'AI Agents for Business', to: '/ai-solutions/ai-agents-for-business' },
+                  { name: 'CRM & Lead Automation', to: '/ai-solutions/crm-lead-automation' },
+                  { name: 'AI Analytics & Reporting', to: '/ai-solutions/ai-analytics-reporting' },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.to} className="hover:text-primary transition-colors">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+                <li className="pt-1">
+                  <Link
+                    href="/ai-solutions"
+                    className="inline-flex items-center gap-1 text-[13px] font-bold text-primary hover:underline"
+                  >
+                    <span>View All AI Solutions</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 4: Company */}
+            <div>
+              <h4 className="text-[15px] font-bold text-white mb-4">Company</h4>
+              <ul className="space-y-2.5 text-[14px]">
+                {[
+                  { name: 'About Us', href: '/about', isRoute: true },
+                  { name: 'Our Work', href: '/our-work', isRoute: true },
+                  { name: 'Industries', href: '/industries', isRoute: true },
+                  { name: 'Case Studies', href: '/our-work#case-studies', isRoute: true },
+                  { name: 'Careers', href: '/about#careers', isRoute: true },
+                  { name: 'Blog', href: '/blog', isRoute: true },
+                  { name: 'Contact Us', href: '/contact', isRoute: true },
+                ].map((item) => (
+                  <li key={item.name}>
+                    {item.isRoute ? (
+                      <Link href={item.href} className="hover:text-primary transition-colors">
+                        {item.name}
                       </Link>
                     ) : (
-                      <a href="#cta" className="hover:text-primary transition-colors">
-                        {loc}
+                      <a href={item.href} className="hover:text-primary transition-colors">
+                        {item.name}
                       </a>
                     )}
                   </li>
-                )
-              )}
-            </ul>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -388,13 +368,13 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-white/60">
           <div>© 2026 WebXCode. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-5">
-            <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">
+            <Link href="/terms-and-conditions" className="hover:text-primary transition-colors">
               Terms & Conditions
             </Link>
-            <Link to="/refund-policy" className="hover:text-primary transition-colors">
+            <Link href="/refund-policy" className="hover:text-primary transition-colors">
               Refund Policy
             </Link>
             <a href="#footer" className="hover:text-primary transition-colors">

@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e242e;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 40px -12px rgba(30, 36, 46, 0.12);
+}
+
+.shadow-soft-hover {
+  box-shadow: 0 20px 50px -12px rgba(5, 113, 194, 0.18);
+}
+
+.blue-glow {
+  background: radial-gradient(circle, rgba(5, 113, 194, 0.32) 0%, rgba(30, 36, 46, 0) 70%);
+}
+
+.blue-glow-strong {
+  background: radial-gradient(circle, rgba(5, 113, 194, 0.42) 0%, rgba(30, 36, 46, 0) 68%);
+}
