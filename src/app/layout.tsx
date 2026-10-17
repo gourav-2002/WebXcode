@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Caveat } from 'next/font/google';
 import './globals.css';
 import { QuoteModalProvider } from './_context/QuoteModalProvider';
-import NavbarWrapper from './_components/NavbarWrapper';
-import FooterWrapper from './_components/FooterWrapper';
+import NavbarClient from '@/components/NavbarClient';
+import Footer from '@/components/Footer';
 
 // ─── Google Fonts ────────────────────────────────────────────────────────────
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -50,13 +50,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col bg-white text-navy antialiased">
         <QuoteModalProvider>
           {/* Navbar */}
-          <NavbarWrapper />
+          <NavbarClient />
 
           {/* Page content */}
           <main className="flex-1">{children}</main>
 
           {/* Footer */}
-          <FooterWrapper />
+          <Footer />
         </QuoteModalProvider>
       </body>
     </html>

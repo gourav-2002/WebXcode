@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       url: 'https://webxcode.in',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://webxcode.in/favicon.ico',
+        url: 'https://webxcode.in/icon.png',
       },
     },
   };

@@ -44,7 +44,7 @@ const homeSchema = {
       url: 'https://webxcode.in',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://webxcode.in/favicon.ico',
+        url: 'https://webxcode.in/icon.png',
       },
       sameAs: [
         'https://twitter.com/webxcode',

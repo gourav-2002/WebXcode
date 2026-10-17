@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -94,45 +97,22 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
+const LOGO_DARK_BG =
+  'https://res.cloudinary.com/dqjlffxja/image/upload/v1792256055/WebXCode_Blue_and_White_Logo_g4tw7g.png';
+const LOGO_LIGHT_BG =
+  'https://res.cloudinary.com/dqjlffxja/image/upload/v1792256054/website-logo_mnqqlp.png';
+
 const WebXCodeLogo: React.FC<{ darkBg?: boolean }> = ({ darkBg = false }) => {
   return (
-    <span className="inline-flex items-center gap-2.5 select-none">
-      {/* Geometric X-Bracket Emblem strictly in Primary Blue & White/Navy */}
-      <svg
-        width="36"
-        height="32"
-        viewBox="0 0 36 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="shrink-0"
-        aria-hidden="true"
-      >
-        <path
-          d="M11 4L3 16L11 28"
-          stroke="#0571c2"
-          strokeWidth="3.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M25 4L33 16L25 28"
-          stroke="#0571c2"
-          strokeWidth="3.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M14 9L22 23M22 9L14 23"
-          stroke={darkBg ? '#ffffff' : '#1e242e'}
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-      </svg>
-      <span className="text-[22px] font-extrabold tracking-tight leading-none">
-        <span className={darkBg ? 'text-white' : 'text-navy'}>Web</span>
-        <span className="text-primary">X</span>
-        <span className={darkBg ? 'text-white' : 'text-navy'}>Code</span>
-      </span>
+    <span className="inline-flex items-center select-none">
+      <Image
+        src={darkBg ? LOGO_DARK_BG : LOGO_LIGHT_BG}
+        alt="WebXCode"
+        width={180}
+        height={45}
+        priority
+        className="h-10 sm:h-11 w-auto"
+      />
     </span>
   );
 };
